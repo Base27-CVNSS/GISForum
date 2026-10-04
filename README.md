@@ -1,63 +1,55 @@
-# GISForum
+# GISForum — phục dựng Vì Cộng Đồng GIS Việt
 
-**GISForum** là hướng phát triển một diễn đàn chuyên nghiệp cho cộng đồng GIS Việt Nam, tập trung vào **GIS, WebGIS, GeoAI, Remote Sensing, UAV/LiDAR, GNSS, PostGIS, dữ liệu không gian và sản phẩm mã nguồn mở**.
-
-> Repo này xuất phát từ gói ngôn ngữ tiếng Việt của Flarum. Thư mục `locale/` và phần Flarum language pack hiện vẫn được giữ lại làm nền tảng bản địa hóa; phần sản phẩm GISForum sẽ được tái cấu trúc dần thay vì phá vỡ dữ liệu dịch đang có.
+Repository này đang được tái cấu trúc để phục dựng tinh thần và taxonomy của diễn đàn **gisvn.com.vn** cũ, đồng thời chuẩn bị đường nâng cấp sang một forum production hiện đại.
 
 ## Preview
 
-Trang xem trước tĩnh được đặt trong `docs/` và deploy bằng GitHub Pages:
+- Classic GISVN: https://base27-cvnss.github.io/GISForum/
+- Archive: https://base27-cvnss.github.io/GISForum/archive/
+- Modern concept (bản trước): https://base27-cvnss.github.io/GISForum/modern.html
 
-**https://base27-cvnss.github.io/GISForum/**
+## Nguồn phục dựng
 
-Preview mô phỏng:
-- trang chủ thảo luận chuyên nghiệp;
-- chuyên mục GIS / QGIS / WebGIS / GeoAI / PostGIS / Viễn thám / UAV-LiDAR / Data / Jobs;
-- tìm kiếm và lọc chủ đề;
-- dark/light mode;
-- modal tạo thảo luận;
-- khu tài nguyên, việc làm và GISForum Lab;
-- responsive cho desktop/mobile.
+Bản classic dựa trên snapshot vBulletin 4.1.7 năm 2016 và file HTML/assets lưu từ Wayback do chủ dự án cung cấp. Taxonomy hiện có 19 nhóm chính, giữ lại tên forum, số chủ đề/bài gửi và bài cuối từ snapshot.
 
-## Định hướng production
+Các đặc trưng đã phục dựng:
+- thanh đăng nhập / đăng ký;
+- header và nhận diện “Vì Cộng Đồng GIS Việt”;
+- menu Diễn đàn / Bài mới / Nhóm;
+- thông báo mới nhất;
+- Thống Kê TopX;
+- category/forum rows kiểu vBulletin;
+- Chuyện gì đang diễn ra / thống kê diễn đàn;
+- archive text-only;
+- responsive để vẫn dùng được trên màn hình hiện đại.
 
-Kiến trúc đề xuất:
+## Dữ liệu lịch sử
+
+Preview hiện là **static reconstruction**, chưa phải database thật. Không giả lập tài khoản hoặc nội dung lịch sử chưa trích được.
+
+Số liệu snapshot đang hiển thị:
+- 4,297 chủ đề
+- 24,799 bài gửi
+- 101,617 thành viên
+
+Bộ Wayback được tham chiếu có 863 entries. Phase tiếp theo có thể xây importer để lập chỉ mục các URL snapshot, thread/forum ID và nội dung được lưu hợp lệ.
+
+## Production target
 
 ```text
 Cloudflare
    │
 forum.gis.vn
    │
-Flarum / GISForum application
-   │
-├── MySQL / MariaDB
-├── Redis (khi cần)
-├── Cloudflare R2 (media / dataset / attachment)
-└── GitHub CI/CD
+Flarum / forum backend
+   ├── MariaDB/MySQL
+   ├── R2 attachments
+   ├── Vietnamese locale
+   └── GIS-specific extensions
 ```
 
-Nơi chạy phù hợp: Railway / Render / VPS Docker. GitHub Pages chỉ dùng để preview UI tĩnh, không chạy PHP/Flarum.
+GitHub Pages chỉ dùng cho bản phục dựng/preview; forum động cần backend + database.
 
-## Lộ trình
+## Legacy locale
 
-1. **Phase 0 — Preview:** định hình UX/UI, taxonomy chuyên mục và branding.
-2. **Phase 1 — Forum Core:** dựng Flarum app production, auth, profile, tags, moderation, search.
-3. **Phase 2 — GIS Extensions:** map/embed, dataset attachment, code snippet, CRS metadata, GeoJSON/PMTiles preview.
-4. **Phase 3 — Community Platform:** marketplace, jobs, labs, reputation, best answer, API/MCP.
-5. **Phase 4 — GeoAI:** trợ lý hỏi đáp GIS, semantic search và agent hỗ trợ phân tích không gian.
-
-## Cấu trúc hiện tại
-
-```text
-GISForum/
-├── docs/                  # GitHub Pages preview
-├── locale/                # Vietnamese translations inherited from Flarum language pack
-├── .github/workflows/     # Pages deployment
-├── composer.json          # Current Flarum language-pack metadata
-├── extend.php             # Current Flarum language-pack bootstrap
-└── GISFORUM.md            # Product/architecture blueprint
-```
-
-## License
-
-MIT, theo nền tảng repo hiện tại.
+Repo ban đầu là fork của `flarum-lang/vietnamese`. Phần `locale/`, `composer.json`, `extend.php` vẫn được giữ nguyên để không làm mất dữ liệu bản địa hóa.

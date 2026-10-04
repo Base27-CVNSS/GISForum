@@ -1,59 +1,29 @@
-const root = document.documentElement;
-const topics = [...document.querySelectorAll('.topic')];
-const search = document.querySelector('#globalSearch');
-const empty = document.querySelector('#emptyState');
-let activeCategory = 'all';
+const data = window.GISVN_FORUM_DATA || [];
+const forumsEl = document.querySelector('#forums');
+const searchEl = document.querySelector('#forumSearch');
+const statusEl = document.querySelector('#filterStatus');
 
-function applyFilters(){
-  const q = (search?.value || '').trim().toLowerCase();
-  let visible = 0;
-  topics.forEach(topic => {
-    const categoryOk = activeCategory === 'all' || topic.dataset.category === activeCategory;
-    const haystack = (topic.dataset.search + ' ' + topic.innerText).toLowerCase();
-    const queryOk = !q || haystack.includes(q);
-    const show = categoryOk && queryOk;
-    topic.hidden = !show;
-    if(show) visible++;
-  });
-  if(empty) empty.hidden = visible !== 0;
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function render(q=''){
+  const needle=q.trim().toLowerCase();
+  let shownForums=0, shownCats=0;
+  const html=data.map((cat,ci)=>{
+    const [name,desc,forums]=cat;
+    const matches=forums.filter(f=>!needle || (name+' '+f.slice(1).join(' ')).toLowerCase().includes(needle));
+    if(!matches.length) return '';
+    shownCats++; shownForums+=matches.length;
+    return '<section class="category" data-cat="'+ci+'"><div class="category-head"><div><span class="cat-title">'+esc(name)+'</span>'+(desc?'<span class="cat-desc">- '+esc(desc)+'</span>':'')+'</div><button class="collapse-btn" data-cat-collapse="'+ci+'">−</button></div><div class="category-body" id="cat-'+ci+'">'+matches.map(f=>'<article class="forum-row"><div class="forum-info"><div class="forum-icon"></div><div><a class="forum-title" href="./archive/?f='+esc(f[0])+'">'+esc(f[1])+'</a><div class="forum-stats">Chủ đề: '+esc(f[2])+', &nbsp; Bài gửi: '+esc(f[3])+'</div></div></div><div class="lastpost"><span class="lastpost-label">Bài cuối:</span><a class="lastpost-title" href="#">'+esc(f[4])+'</a><span class="lastpost-by">gửi bởi <b>'+esc(f[5])+'</b></span></div></article>').join('')+'</div></section>';
+  }).join('');
+  forumsEl.innerHTML=html || '<div class="notice">Không tìm thấy diễn đàn phù hợp.</div>';
+  if(needle){statusEl.hidden=false;statusEl.textContent='Lọc: “'+q+'” — '+shownForums+' diễn đàn trong '+shownCats+' nhóm.';} else statusEl.hidden=true;
 }
-
-document.querySelectorAll('[data-category]').forEach(btn => {
-  if(!btn.classList.contains('category')) return;
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.category').forEach(x => x.classList.remove('active'));
-    btn.classList.add('active');
-    activeCategory = btn.dataset.category;
-    applyFilters();
-    document.querySelector('#discussions')?.scrollIntoView({behavior:'smooth',block:'start'});
-  });
+render();
+searchEl?.addEventListener('input',e=>render(e.target.value));
+document.addEventListener('click',e=>{
+  const collapse=e.target.closest('[data-collapse]');
+  if(collapse){const body=document.getElementById(collapse.dataset.collapse); if(body){body.hidden=!body.hidden;collapse.textContent=body.hidden?'+':'−';}}
+  const catBtn=e.target.closest('[data-cat-collapse]');
+  if(catBtn){const body=document.getElementById('cat-'+catBtn.dataset.catCollapse);if(body){body.hidden=!body.hidden;catBtn.textContent=body.hidden?'+':'−';}}
+  const tab=e.target.closest('.latest-tabs button');
+  if(tab){document.querySelectorAll('.latest-tabs button').forEach(x=>x.classList.remove('active'));tab.classList.add('active');}
 });
-
-search?.addEventListener('input', applyFilters);
-window.addEventListener('keydown', e => {
-  if(e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA'){
-    e.preventDefault(); search?.focus();
-  }
-});
-
-const savedTheme = localStorage.getItem('gisforum-theme');
-if(savedTheme === 'light') root.classList.add('light');
-document.querySelector('#themeToggle')?.addEventListener('click', () => {
-  root.classList.toggle('light');
-  localStorage.setItem('gisforum-theme', root.classList.contains('light') ? 'light' : 'dark');
-});
-
-const modal = document.querySelector('#composerModal');
-function setComposer(open){
-  if(!modal) return;
-  modal.hidden = !open;
-  document.body.style.overflow = open ? 'hidden' : '';
-}
-document.querySelectorAll('[data-open-composer]').forEach(x => x.addEventListener('click', () => setComposer(true)));
-document.querySelectorAll('[data-close-composer]').forEach(x => x.addEventListener('click', () => setComposer(false)));
-window.addEventListener('keydown', e => { if(e.key === 'Escape') setComposer(false); });
-
-document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
-  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-  tab.classList.add('active');
-}));
