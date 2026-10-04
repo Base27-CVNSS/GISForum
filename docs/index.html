@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#07111d" />
+  <title>GISForum — Cộng đồng GIS Việt Nam</title>
+  <meta name="description" content="Bản xem trước GISForum: cộng đồng chuyên nghiệp cho GIS, WebGIS, GeoAI, dữ liệu không gian và công nghệ bản đồ." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="top-strip">GISForum Preview · Community-first · Open GIS</div>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#" aria-label="GISForum">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 44 44" role="img">
+            <path d="M22 4 38 13v18L22 40 6 31V13Z" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 28c5-6 15-9 22-7M13 18c6 4 13 6 20 5M22 8v28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="22" cy="22" r="3.5" fill="currentColor"/>
+          </svg>
+        </span>
+        <span><strong>GIS</strong>Forum<small>Không gian tri thức địa lý</small></span>
+      </a>
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a class="active" href="#discussions">Thảo luận</a>
+        <a href="#categories">Chuyên mục</a>
+        <a href="#resources">Tài nguyên</a>
+        <a href="#jobs">Việc làm</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Đổi giao diện">◐</button>
+        <button class="ghost-btn">Đăng nhập</button>
+        <button class="primary-btn" data-open-composer>Đăng bài</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">CỘNG ĐỒNG GIS · WEBGIS · GEOAI</span>
+          <h1>Nơi dân GIS Việt Nam<br/><span>hỏi đúng, chia sẻ thật, xây cùng nhau.</span></h1>
+          <p>Diễn đàn chuyên sâu cho dữ liệu không gian, bản đồ web, viễn thám, UAV/LiDAR, PostGIS, GeoAI và các sản phẩm GIS mã nguồn mở.</p>
+          <div class="hero-search">
+            <span>⌕</span>
+            <input id="globalSearch" type="search" placeholder="Tìm bài viết, lỗi QGIS, PostGIS, MapLibre, GeoAI..." aria-label="Tìm kiếm" />
+            <kbd>/</kbd>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-btn large" data-open-composer>+ Tạo thảo luận mới</button>
+            <a class="text-link" href="#categories">Khám phá chuyên mục →</a>
+          </div>
+          <div class="quick-stats">
+            <div><strong>18.4K</strong><span>thành viên</span></div>
+            <div><strong>6.2K</strong><span>chủ đề</span></div>
+            <div><strong>42K</strong><span>phản hồi</span></div>
+            <div><strong>1.1K</strong><span>tài nguyên</span></div>
+          </div>
+        </div>
+        <div class="map-card" aria-label="Minh họa mạng lưới không gian">
+          <div class="map-toolbar">
+            <span><i></i> Spatial activity</span>
+            <span class="live">● LIVE</span>
+          </div>
+          <div class="map-canvas">
+            <svg viewBox="0 0 760 480" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+                  <path d="M42 0H0V42" fill="none" stroke="currentColor" stroke-opacity=".12"/>
+                </pattern>
+              </defs>
+              <rect width="760" height="480" fill="url(#grid)"/>
+              <path class="contour" d="M-20 305C95 195 193 359 295 270s170-21 251-111 169-4 225-66"/>
+              <path class="contour faint" d="M-35 353C83 252 182 402 309 318s163-37 264-112 151-24 219-97"/>
+              <path class="river" d="M-10 90C112 120 128 225 238 222s101-92 201-81 115 126 321 107"/>
+              <g class="nodes">
+                <circle cx="170" cy="208" r="8"/><circle cx="238" cy="222" r="6"/>
+                <circle cx="410" cy="153" r="9"/><circle cx="570" cy="210" r="7"/>
+                <circle cx="655" cy="150" r="5"/>
+              </g>
+              <g class="links">
+                <path d="M170 208 238 222 410 153 570 210 655 150"/>
+                <path d="M238 222 570 210"/>
+              </g>
+            </svg>
+            <div class="map-chip chip-a">WebGIS · 128</div>
+            <div class="map-chip chip-b">GeoAI · 86</div>
+            <div class="map-chip chip-c">PostGIS · 74</div>
+          </div>
+          <div class="map-footer">
+            <div><strong>+327</strong><span>hoạt động hôm nay</span></div>
+            <div><strong>23</strong><span>nhóm chuyên môn</span></div>
+            <div><strong>12</strong><span>tỉnh/thành online</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell content-grid" id="discussions">
+      <aside class="sidebar" id="categories">
+        <div class="panel-title">Chuyên mục</div>
+        <button class="category active" data-category="all"><span class="cat-icon">⌂</span><span>Tất cả thảo luận</span><b>6.2K</b></button>
+        <button class="category" data-category="gis"><span class="cat-icon">◎</span><span>GIS nền tảng</span><b>942</b></button>
+        <button class="category" data-category="qgis"><span class="cat-icon">Q</span><span>QGIS / Desktop GIS</span><b>786</b></button>
+        <button class="category" data-category="webgis"><span class="cat-icon">⌁</span><span>WebGIS & Maps</span><b>1.3K</b></button>
+        <button class="category" data-category="geoai"><span class="cat-icon">AI</span><span>GeoAI & Spatial LLM</span><b>518</b></button>
+        <button class="category" data-category="postgis"><span class="cat-icon">DB</span><span>PostGIS & Spatial DB</span><b>604</b></button>
+        <button class="category" data-category="rs"><span class="cat-icon">◫</span><span>Viễn thám</span><b>431</b></button>
+        <button class="category" data-category="uav"><span class="cat-icon">⌖</span><span>UAV · LiDAR · GNSS</span><b>377</b></button>
+        <button class="category" data-category="data"><span class="cat-icon">⇩</span><span>Dữ liệu & Marketplace</span><b>825</b></button>
+        <button class="category" data-category="jobs"><span class="cat-icon">▣</span><span>Việc làm GIS</span><b>264</b></button>
+
+        <div class="mini-card">
+          <span class="mini-label">GISFORUM LAB</span>
+          <strong>Đăng demo WebGIS</strong>
+          <p>Chia sẻ MapLibre, PMTiles, 3D GIS và công cụ mã nguồn mở của bạn.</p>
+          <a href="#resources">Xem khu Labs →</a>
+        </div>
+      </aside>
+
+      <section class="feed">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">THẢO LUẬN CỘNG ĐỒNG</span>
+            <h2>Mới & đáng chú ý</h2>
+          </div>
+          <div class="tabs">
+            <button class="tab active">Mới nhất</button>
+            <button class="tab">Nổi bật</button>
+            <button class="tab">Chưa trả lời</button>
+          </div>
+        </div>
+
+        <div class="topic-list" id="topicList">
+          <article class="topic pinned" data-category="webgis" data-search="maplibre pmtiles webgis kiến trúc">
+            <div class="avatar map">M</div>
+            <div class="topic-main">
+              <div class="topic-meta"><span class="badge blue">WebGIS</span><span>•</span><span>ghim bởi Admin</span></div>
+              <h3>Kiến trúc WebGIS 2026: MapLibre + PMTiles + PostGIS nên chia tầng thế nào?</h3>
+              <p>Từ browser rendering đến tile pipeline, cache, spatial API và chiến lược offline-first.</p>
+              <div class="topic-bottom"><span>MinhGIS · 12 phút trước</span><span>♡ 48</span><span>💬 19</span></div>
+            </div>
+          </article>
+
+          <article class="topic" data-category="geoai" data-search="geoai spatial llm agent gis mcp">
+            <div class="avatar ai">AI</div>
+            <div class="topic-main">
+              <div class="topic-meta"><span class="badge violet">GeoAI</span><span>•</span><span>Spatial Agent</span></div>
+              <h3>Spatial LLM có thật sự “hiểu không gian”, hay chỉ đang gọi GIS tools?</h3>
+              <p>Thảo luận về tool-use, spatial reasoning, world model và MCP cho tác vụ GIS.</p>
+              <div class="topic-bottom"><span>GeoLab · 28 phút trước</span><span>♡ 61</span><span>💬 27</span></div>
+            </div>
+          </article>
+
+          <article class="topic" data-category="qgis" data-search="qgis biểu thức geometry lỗi plugin">
+            <div class="avatar qgis">Q</div>
+            <div class="topic-main">
+              <div class="topic-meta"><span class="badge green">QGIS</span><span>•</span><span>Đã giải đáp ✓</span></div>
+              <h3>Tối ưu biểu thức geometry generator khi lớp có hơn 2 triệu đối tượng?</h3>
+              <p>So sánh virtual layer, expression index, materialized geometry và xử lý bằng PyQGIS.</p>
+              <div class="topic-bottom"><span>LanSpatial · 43 phút trước</span><span>♡ 25</span><span>💬 11</span></div>
+            </div>
+          </article>
+
+          <article class="topic" data-category="postgis" data-search="postgis postgres spatial index gist query tối ưu">
+            <div class="avatar db">DB</div>
+            <div class="topic-main">
+              <div class="topic-meta"><span class="badge cyan">PostGIS</span><span>•</span><span>Database</span></div>
+              <h3>GiST hay SP-GiST cho dữ liệu điểm thời gian thực? Benchmark thực tế</h3>
+              <p>Thiết kế bảng quan trắc IoT không gian-thời gian và chiến lược partition theo thời gian.</p>
+              <div class="topic-bottom"><span>datnguyen · 1 giờ trước</span><span>♡ 37</span><span>💬 14</span></div>
+            </div>
+          </article>
+
+          <article class="topic" data-category="uav" data-search="lidar uav gnss drone point cloud">
+            <div class="avatar uav">3D</div>
+            <div class="topic-main">
+              <div class="topic-meta"><span class="badge amber">UAV · LiDAR</span><span>•</span><span>3D GIS</span></div>
+              <h3>Pipeline point cloud → 3D Tiles cho đô thị: COPC, Entwine hay Potree?</h3>
+              <p>Kinh nghiệm xử lý LiDAR lớn, LOD, streaming trên web và tích hợp Cesium/MapLibre.</p>
+              <div class="topic-bottom"><span>ThanhLe · 2 giờ trước</span><span>♡ 54</span><span>💬 21</span></div>
+            </div>
+          </article>
+
+          <article class="topic" data-category="data" data-search="dữ liệu hành chính pmtiles vfm dataset">
+            <div class="avatar data">D</div>
+            <div class="topic-main">
+              <div class="topic-meta"><span class="badge rose">Dữ liệu</span><span>•</span><span>Open Data</span></div>
+              <h3>Chia sẻ bộ ranh giới hành chính tối ưu cho web: GeoJSON, PMTiles hay VFM?</h3>
+              <p>Tiêu chí dung lượng, random access, cập nhật phiên bản và khả năng dùng offline.</p>
+              <div class="topic-bottom"><span>OpenGeoVN · 3 giờ trước</span><span>♡ 72</span><span>💬 33</span></div>
+            </div>
+          </article>
+        </div>
+        <div id="emptyState" class="empty-state" hidden>Không tìm thấy thảo luận phù hợp.</div>
+        <button class="load-more">Xem thêm thảo luận</button>
+      </section>
+
+      <aside class="rightbar">
+        <div class="side-card">
+          <div class="card-head"><strong>Đang nổi</strong><span>24h</span></div>
+          <ol class="trend-list">
+            <li><b>01</b><a href="#">MapLibre GL JS 6: thay đổi nào đáng chú ý?</a></li>
+            <li><b>02</b><a href="#">GeoAI workflow chống leakage dữ liệu</a></li>
+            <li><b>03</b><a href="#">PMTiles cho bản đồ nền Việt Nam</a></li>
+            <li><b>04</b><a href="#">QGIS plugin nên đóng gói thế nào?</a></li>
+          </ol>
+        </div>
+
+        <div class="side-card" id="resources">
+          <div class="card-head"><strong>Tài nguyên mới</strong><a href="#">Tất cả</a></div>
+          <div class="resource"><span class="file-icon">ZIP</span><div><b>VN Admin Boundaries</b><small>PMTiles · 84 MB</small></div></div>
+          <div class="resource"><span class="file-icon">SDK</span><div><b>WebGIS Starter</b><small>MIT · TypeScript</small></div></div>
+          <div class="resource"><span class="file-icon">VFM</span><div><b>VFM Samples</b><small>Vector · Time series</small></div></div>
+        </div>
+
+        <div class="side-card" id="jobs">
+          <div class="card-head"><strong>Việc làm GIS</strong><a href="#">Đăng tin</a></div>
+          <div class="job"><i></i><div><b>WebGIS Engineer</b><small>TP.HCM · Hybrid</small></div></div>
+          <div class="job"><i></i><div><b>Remote Sensing Analyst</b><small>Hà Nội · Full-time</small></div></div>
+          <div class="job"><i></i><div><b>GeoAI Researcher</b><small>Remote · R&D</small></div></div>
+        </div>
+
+        <div class="side-card community">
+          <span class="mini-label">CỘNG ĐỒNG MỞ</span>
+          <h3>Xây GISForum cùng nhau</h3>
+          <p>Theme, extension, dataset và bản demo đều có thể phát triển mở trên GitHub.</p>
+          <a class="secondary-btn" href="https://github.com/Base27-CVNSS/GISForum">Mở repository ↗</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div class="brand footer-brand"><span class="brand-mark">◎</span><span><strong>GIS</strong>Forum<small>Open geospatial community</small></span></div>
+      <div>GIS · WebGIS · GeoAI · Open Data · 2026</div>
+    </div>
+  </footer>
+
+  <div class="modal" id="composerModal" hidden>
+    <div class="modal-backdrop" data-close-composer></div>
+    <section class="composer" role="dialog" aria-modal="true" aria-labelledby="composerTitle">
+      <button class="modal-close" data-close-composer aria-label="Đóng">×</button>
+      <span class="eyebrow">TẠO THẢO LUẬN</span>
+      <h2 id="composerTitle">Chia sẻ vấn đề GIS của bạn</h2>
+      <label>Tiêu đề<input type="text" placeholder="Ví dụ: Làm sao tối ưu PMTiles cho dữ liệu lớn?" /></label>
+      <label>Chuyên mục<select><option>WebGIS & Maps</option><option>GeoAI & Spatial LLM</option><option>QGIS</option><option>PostGIS</option><option>UAV · LiDAR · GNSS</option></select></label>
+      <label>Nội dung<textarea rows="6" placeholder="Mô tả dữ liệu, CRS, công cụ, lỗi hoặc kết quả mong muốn..."></textarea></label>
+      <div class="composer-actions"><span>Bản preview — chưa gửi dữ liệu thật.</span><button class="primary-btn" data-close-composer>Đăng thảo luận</button></div>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
