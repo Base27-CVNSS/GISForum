@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vì Cộng Đồng GIS Việt — GISForum Classic</title>
+<meta name="description" content="Phục dựng giao diện diễn đàn GISVN cổ điển dựa trên bản lưu vBulletin 4.1.7 năm 2016.">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="classic-ribbon">GISVN CLASSIC · PHỤC DỰNG TỪ DIỄN ĐÀN GỐC 2012–2016</div>
+
+<div id="topBar">
+  <div class="pageWrap top-inner">
+    <a class="register" href="#">Đăng ký thành viên</a><span class="sep">|</span>
+    <form class="login-form" onsubmit="return false">
+      <input aria-label="Ký danh" placeholder="Ký Danh">
+      <input aria-label="Mật khẩu" type="password" placeholder="Mật khẩu">
+      <label><input type="checkbox"> Lưu lại</label>
+      <button>Đăng nhập</button>
+    </form>
+  </div>
+</div>
+
+<header class="pageWrap header">
+  <a class="classic-logo" href="./">
+    <span class="logo-orbit"></span>
+    <span class="logo-copy"><b>VÌ CỘNG ĐỒNG</b><strong>GIS VIỆT</strong><small>www.gisvn.com.vn</small></span>
+  </a>
+  <div class="header-note">Cộng đồng GIS · Viễn thám · Trắc địa · GPS · Quản lý đất đai</div>
+</header>
+
+<nav class="navbar">
+  <div class="pageWrap nav-inner">
+    <div class="tabs">
+      <a class="selected" href="./">Diễn đàn</a>
+      <a href="#topx">Bài mới</a>
+      <a href="#wgo">Nhóm</a>
+      <a href="./archive/">Lưu trữ <span class="count-chip">863</span></a>
+      <a class="new-ui" href="./modern.html">Giao diện 2026</a>
+    </div>
+    <form class="nav-search" onsubmit="return false">
+      <input id="forumSearch" placeholder="Tìm kiếm diễn đàn">
+      <button aria-label="Tìm kiếm">🔍</button>
+    </form>
+  </div>
+  <div class="subnav">
+    <div class="pageWrap">
+      <a href="#topx">Bài gửi hôm nay</a>
+      <a href="#">FAQ</a>
+      <a href="#">Lịch</a>
+      <a href="#wgo">Trang cộng đồng</a>
+      <a href="#">Hoạt động diễn đàn</a>
+      <a href="#">Liên kết nhanh</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pageWrap main">
+  <div class="breadcrumb"><span class="home">⌂</span><span>›</span><b>Diễn đàn</b><span class="source-tag">vBulletin 4.1.7 heritage</span></div>
+
+  <div class="notice">
+    Chào mừng bạn đến với Diễn Đàn. Nếu đây là lần đầu bạn ghé qua diễn đàn thì bạn hãy vào mục Hỏi/Đáp để xem hướng dẫn.
+    <a href="#"><b>BẤM VÀO ĐÂY ĐỂ ĐĂNG KÝ THÀNH VIÊN</b></a> và tham gia chia sẻ thảo luận cùng mọi người.
+  </div>
+
+  <section class="legacy-box announcements">
+    <div class="box-head"><b>Thông Báo Mới Nhất</b><button class="collapse-btn" data-collapse="announcementsBody">−</button></div>
+    <div id="announcementsBody" class="announcement-list">
+      <a class="green" href="#">Hot - Thông báo lần I V/v hội thảo Offline GISVN năm 2015.</a>
+      <a href="#">Danh sách đóng tiền áo GISVN 2014</a>
+      <a class="red" href="#">Hot - Thông báo lần I: Thông tin tổ chức Offline GISVN năm 2014.</a>
+      <a class="blue" href="#">Hot - Hình ảnh áo diễn đàn đợt offline 2014 (trang 5).</a>
+    </div>
+  </section>
+
+  <section id="topx" class="legacy-box topx">
+    <div class="box-head"><b>Thống Kê Topx</b><button class="collapse-btn" data-collapse="topxBody">−</button></div>
+    <div id="topxBody" class="topx-grid">
+      <div class="topx-panel">
+        <div class="topx-tabs"><select><option>Thành Viên Mới Nhất</option><option>Được Cám Ơn</option><option>Gởi Bài Nhiều Nhất</option><option>Gởi Chủ Đề nhiều nhất</option></select></div>
+        <div class="member-list">
+          <span><time>Hôm nay</time><b>sakura12a</b></span>
+          <span><time>Hôm nay</time><b>thc_nhadep</b></span>
+          <span><time>Hôm qua</time><b>vantuansri</b></span>
+          <span><time>Hôm qua</time><b>maiyeu1991</b></span>
+          <span><time>Hôm qua</time><b>phamthanh2795</b></span>
+          <span><time>Hôm qua</time><b>van dang</b></span>
+        </div>
+      </div>
+      <div class="topx-panel">
+        <div class="topx-tabs latest-tabs"><button class="active">Bài Mới Nhất</button><button>Chủ Đề "Hot"</button><button>Xem Nhiều Nhất</button></div>
+        <div class="latest-list">
+          <a><b>haidangkute</b><span>Hướng dẫn download ảnh Google earth và chuyển sang VN2000 Nội bộ</span></a>
+          <a><b>phamtuanhatinh</b><span>Tool gộp thửa nhỏ vào thửa lớn bất kỳ trong Map</span></a>
+          <a><b>rockmanx2010</b><span>Dành cho những ai đam mê về lập trình và muốn học tập tư duy logic!</span></a>
+          <a><b>huynhminhdc</b><span>Thắc mắc ba loại ảnh L8 OLI/TIRS...</span></a>
+          <a><b>vien.no1</b><span>Chuyển Gauss về Vn2000</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="forum-filter-status" id="filterStatus" hidden></div>
+  <section id="forums" aria-label="Danh sách diễn đàn"></section>
+
+  <section id="wgo" class="legacy-box wgo">
+    <div class="box-head"><b>Chuyện gì đang diễn ra?</b></div>
+    <div class="wgo-row">
+      <div class="wgo-icon">👥</div>
+      <div><h3>Thành viên đang trực tuyến</h3><p><b>39 người đang xem</b>. 2 thành viên và 37 khách.</p><p>Kỷ lục: 436 người đã ghé thăm, ngày 04-08-2015 lúc 05:35 PM.</p><p class="users">nmiavn, quantien</p></div>
+    </div>
+    <div class="wgo-row">
+      <div class="wgo-icon">📊</div>
+      <div><h3>Thống kê - Vì Cộng Đồng GIS Việt</h3>
+        <dl class="stats"><dt>Chủ đề</dt><dd>4,297</dd><dt>Bài gửi</dt><dd>24,799</dd><dt>Thành viên</dt><dd>101,617</dd></dl>
+        <p>Di sản số liệu được giữ theo bản chụp diễn đàn năm 2016; dữ liệu production mới sẽ được tách riêng.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="pageWrap footer-grid">
+    <div><strong>Vì Cộng Đồng GIS Việt</strong><br><small>Phục dựng GISForum · Base27-CVNSS</small></div>
+    <div class="footer-links"><a href="./archive/">Lưu trữ</a><a href="./modern.html">Giao diện mới</a><a href="https://github.com/Base27-CVNSS/GISForum">GitHub</a></div>
+  </div>
+</footer>
+<script>window.GISVN_FORUM_DATA=[["Nội quy & Tin tức","Trung tâm diễn đàn",[["2","Nội quy diễn đàn","4","10","Không đúng chuyên mục","HaVu"],["11","Góp ý","35","179","Thành viên mới","nguyenducloi89"],["12","Tin tức diễn đàn - công nghệ","52","387","elevation & slope arcmap","clover_1303"]]],["Các phần mềm của hãng ESRI - ArcGIS, ArcView 3.x, ArcEngine, ArcSDE, ArcServer,...","",[["10","Software (ArcGIS, ArcView 3.x, ArcEngine, ArcSDE, ArcServer,...) - Không trao đổi tại đây","236","1,441","không chuyển đổi được VN2000...","baquang1984"],["21","Giải đáp thắc mắc các phần mềm: ArcGIS, ArcView 3.x, ArcEngine, ArcSDE, ArcServer,...","643","3,338","Dùng ArcMap chuyển file .dng...","SiCoLa"],["30","Lập trình trong ArcGIS","134","606","Make vehicle Routing Problem...","BinhNhi"]]],["Các phần mềm của hãng Pitney Bowes - MapInfo, Vertical, Discover, MapExtreme, Mapbasic,...","",[["8","Software (MapInfo, Vertical, Discover, MapExtreme, Mapbasic,..) - Không trao đổi tại đây","143","1,585","Tool gộp thửa nhỏ vào thửa...","phamtuanhatinh"],["19","Giải đáp thắc mắc các phần mềm: MapInfo, Vertical, Discover, MapExtreme, Mapbasic,..","569","3,672","Hướng dẫn download ảnh Google...","haidangkute"],["28","Lập trình trong MapInfo","57","279","xin phan mem mapinfo12.5","hoangdiep"]]],["Các phần mềm của Bentley (Microstation, GEOVEC, IRASC, IRASB,...)","",[["9","Các phần mềm của Microstation, GEOVEC, IRASC, IRASB,... - Không trao đổi tại đây","76","511","Cài đặt ViLIS trên Arcgis...","bongthom1985"],["20","Giải đáp thắc mắc các phần mềm: Microstation, GEOVEC, IRASC, IRASB,...","283","1,540","Thắc mắc V8i","AtranDN"],["29","Lập trình cho Microstation","18","70","Help my","nhocklahai"]]],["Viễn Thám","",[["15","Software (ENVI, ERDAS, PCI, IDIRISI,...) - Không trao đổi tại đây","61","545","Phần Mềm ENVI 5.2","tit"],["24","Giải đáp thắc mắc các phần mềm trong Viễn Thám","249","1,256","Thắc mắc ba loại ảnh L8...","huynhminhdc"],["31","Lập trình trong Viễn thám","6","12","Ảnh sentinel bị ngược","ifolike"]]],["WebGIS","",[["83","Phần mềm WebGIS - Không trao đổi tại đây","4","10","Phần mềm ARCIMS","meodensi"],["54","Giải đáp thắc mắc về WebGIS","188","1,249","Bản đồ trực tuyến iMap.com.vn","ngochuyen7584"]]],["Trắc địa và bản đồ","",[["13","Phần mềm Trắc địa - GPS - Không trao đổi tại đây","34","190","Bộ Maptrans 2010 thuộc bộ...","stormy01"],["22","Giải đáp thắc mắc về Trắc địa và Bản đồ","297","1,691","Bản đồ 64 tỉnh thành VIệt Nam","hactori111"]]],["Mã nguồn mở","",[["17","Software - Không trao đổi tại đây","8","48","Lập tình mã nguồn mở với mã...","huynhphuoc"],["26","Giải đáp thắc mắc trong Mã nguồn mở","19","99","thắc mắc về hệ thống webgis","longnt1208"],["32","Lập trình cho mã nguồn mở","22","103","Kết nối PostGIS và thêm lớp...","longnt1208"]]],["Các phần mềm GIS khác","",[["58","Software - Không trao đổi tại đây","65","541","Fme 2014 + thuốc","comebackkii"],["69","Giải đáp thắc mắc về các phần mềm GIS khác","68","367","***** terraExplorer va...","tct80"]]],["Mô hình hóa","",[["16","Software - Không trao đổi tại đây","27","264","AERMOD _Mô hình lan truyền...","ducvn.ev"],["25","Giải đáp thắc mắc trong Mô hình hóa","32","176","Mô hình dem","Tuthanh Nt"]]],["Quản lý Đất đai","",[["14","Software - Không trao đổi tại đây","33","218","Tổng hợp dữ liệu đất đai cho...","i.mleo"],["23","Giải đáp thắc mắc trong Quản lý đất đai","60","377","Tools chuyển đổi bản đồ Vilis...","huynhphuoc"]]],["Các Tool của thành viên","",[["71","Các phần mềm - công cụ viết tặng riêng cho diễn đàn từ các thành viên","9","103","Công cụ GEOMITECH - nGEOTOOLS!","tuyetnhu"]]],["Công nghệ thông tin","",[["66","Các phần mềm IT","53","180","Mời bạn bè dùng Kaspersky...","Top_TV"],["67","Giải đáp thắc mắc trong CNTT","19","85","Học lập trình ứng dụng ở đâu?","Diep_Phong"]]],["Nghiên cứu khoa học","",[["34","GIS và Viễn thám ứng dụng","170","627","Mapinfo","lth0974"],["36","GPS, Trắc địa, Bản đồ ứng dụng","36","83","Hướng dẫn cách thức đo đạc...","rocketno"]]],["Tài liệu học tập","",[["42","Các môn liên quan đến GIS, Viễn thám","74","308","sách hướng dẫn sử dụng...","vuminhtuan"],["44","Các môn liên quan đến GPS, Trắc địa, Bản đồ,...","49","182","Giúp e phân biệt Geographic...","holamtruong"],["46","Các tài liệu khác","111","355","Xin tài liệu về Hydrology...","hungdx010"],["68","Thư viện luận văn","67","152","chọn giá trị trong \"band...","nmngoc"]]],["Đào tạo","",[["48","Các khóa học (Ngắn hạn)","23","84","Dành cho những ai đam mê về...","rockmanx2010"],["70","Thông tin đào tạo (ĐH, CH, NCS)","8","23","Giới thiệu bộ môn Viễn thám...","hanguyentek"],["74","Thông tin học bổng, du học","3","6","“Thông Tin Về Học Bổng: 2016...","tringuyenkh"]]],["Hội thảo - OFFLINE diễn đàn","",[["38","Thông tin tổ chức","34","521","V/v Tổ chức Hội thảo “Ứng...","vuminhtuan"],["39","Bài báo cáo hội thảo","12","84","Bài báo fulltext hội thảo...","NCC"],["40","Hình ảnh","4","76","Hình ảnh OFFLINE GISVN2014 -...","luubakhanhduy"]]],["Việc làm","",[["90","Người tìm việc","6","31","Tìm việc làm GIS tại Thành...","lepetitchu04"],["91","Nhà tuyển dụng","80","221","GTO Software cần tuyển nhân...","09162002"],["92","Tìm nơi thực tập tốt nghiệp ĐH, Thạc Sĩ,...","6","7","Các thông tin khi đăng ký...","dichvumobi"]]],["Relax","",[["63","Truyện cười","12","40","Cười!!!","dongvan03"],["64","Kết bạn","33","415","Thành viên diễn đàn ở Hà Nội !","ducvn.ev"],["72","Mừng sinh nhật thành viên","11","100","Chúc mừng sinh nhật diễn đàn...","linuxredhat"]]]];</script>
+<script src="./app.js"></script>
+</body>
+</html>
